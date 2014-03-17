@@ -1,0 +1,20 @@
+{
+	"name": "zeleznypa/jao-nette-visual-paginator",
+	"description": "Just another one visual paginator component for Nette framework",
+	"version": "0.1.0",
+	"type": "library",	
+	"keywords": ["nette","paginator","visual paginator","component"],
+	"license": "WTFPL",
+	"authors": [
+		{
+			"name": "Pavel Železný",
+			"email": "info@pavelzelezny.cz",
+			"homepage": "http://pavelzelezny.cz",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.3.0",
+		"nette/nette": ">= 2.1.1"
+	}
+}

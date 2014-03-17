@@ -1,0 +1,32 @@
+{*
+ * Visual paginator template
+ * @author Pavel Železný <info@pavelzelezny.cz>
+ * @param Paginator $paginator
+ * @param array     $steps
+ *}
+
+<ul class="pagination" n:if="$paginator->pageCount > 1" n:snippet="paginator">
+	{if $paginator->isFirst()}
+		<li class="disabled"><span class="button" title="{_'Previous'}">&laquo;</span></li>
+	{else}
+		<li><a class="ajax" href="{link switch!, 'page' => $paginator->page - 1}" title="{_'Previous'}">&laquo;</a></li>
+	{/if}
+
+	{foreach $steps as $step}
+		{if $step == $paginator->page}
+			<li class="active"><span class="current">{$step}<span class="sr-only"> {_'current'}</span></span></li>
+		{else}
+			<li><a class="ajax" href="{link switch!, 'page' => $step}">{$step}</a></li>
+		{/if}
+		
+		{if $iterator->nextValue > $step + 1}
+			<li><span>…</span></li>
+		{/if}
+	{/foreach}
+
+	{if $paginator->isLast()}
+		<li class="disabled"><span class="button" title="{_'Next'}">&raquo;</span></li>
+	{else}
+		<li><a class="ajax" href="{link switch!, 'page' => $paginator->page + 1}" title="{_'Next'}">&raquo;</a></li>
+	{/if}
+</ul>
