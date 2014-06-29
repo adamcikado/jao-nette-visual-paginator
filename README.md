@@ -88,7 +88,7 @@ After instalation you can simply set dependency on IVisualPaginatorFacotry by co
 		 * @author Pavel Železný <info@pavelzelezny.cz>
 		 * @return void
 		 */
-		protected fuction redrawPaginatedList()
+		protected function redrawPaginatedList()
 		{
 			$this->redrawComponent('PaginatedList');
 		}
