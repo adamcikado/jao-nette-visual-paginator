@@ -42,10 +42,9 @@ class VisualPaginator extends \Nette\Application\UI\Control
 	 * @param \Zeleznypa\Nette\Utils\IPaginatorFactory $paginatorFactory
 	 * @return void
 	 */
-	public function __construct(\Zeleznypa\Nette\Utils\IPaginatorFactory $paginatorFactory, \Nette\Localization\ITranslator $translator)
+	public function __construct(\Zeleznypa\Nette\Utils\IPaginatorFactory $paginatorFactory)
 	{
 		$this->injectPaginatorFactory($paginatorFactory);
-		$this->injectTranslator($translator);
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="Dependency injection">
@@ -95,7 +94,9 @@ class VisualPaginator extends \Nette\Application\UI\Control
 	public function render()
 	{
 		$this->getTemplate()->setFile($this->getTemplateFile());
-		$this->getTemplate()->setTranslator($this->getTranslator());
+		if ($this->getTranslator()) {
+			$this->getTemplate()->setTranslator($this->getTranslator());
+		}
 		$this->getTemplate()->steps = $this->getSteps();
 		$this->getTemplate()->paginator = $this->getPaginator();
 		$this->getTemplate()->render();
